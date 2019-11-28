@@ -29,4 +29,9 @@ public static double doubleScanner()
 {
 	return SC.nextDouble();
 }
+public static char charScanner()
+{
+	return SC.next().charAt(0);
+}
+
 }
