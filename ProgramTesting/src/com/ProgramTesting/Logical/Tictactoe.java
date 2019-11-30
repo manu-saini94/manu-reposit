@@ -12,25 +12,14 @@ public class TicTacToe
 		String[][] z=new String[3][3];		
 			Random ran=new Random();
 		int k=0;
-		for(int i=0;i<3;i++)
+		int i=0;
+		int j=0;
+		for(i=0;i<3;i++)
 		{
-			if(z[0][0]=="X" && z[1][1]=="X" && z[2][2]=="X" || z[0][2]=="X" && z[1][1]=="X" && z[2][0]=="X" || z[0][0]=="X" && z[1][0]=="X" && z[2][0]=="X"
-				    || z[0][1]=="X" && z[1][1]=="X" && z[2][1]=="X" || z[0][2]=="X" && z[1][2]=="X" && z[2][2]=="X" 
-				    || z[0][0]=="X" && z[0][1]=="X" && z[0][2]=="X" || z[1][0]=="X" && z[1][1]=="X" && z[1][2]=="X" || z[2][0]=="X" && z[2][1]=="X" && z[2][2]=="X")
-				{
-					System.out.println("You win!!");
-					System.exit(0);
-				}
-				else
-					if(z[0][0]=="Y" && z[1][1]=="Y" && z[2][2]=="Y" || z[0][2]=="Y" && z[1][1]=="Y" && z[2][0]=="Y" || z[0][0]=="Y" && z[1][0]=="Y" && z[2][0]=="Y"
-				       || z[0][1]=="Y" && z[1][1]=="Y" && z[2][1]=="Y" || z[0][2]=="Y" && z[1][2]=="Y" && z[2][2]=="Y" 
-				       || z[0][0]=="Y" && z[0][1]=="Y" && z[0][2]=="Y" || z[1][0]=="Y" && z[1][1]=="Y" && z[1][2]=="Y" || z[2][0]=="Y" && z[2][1]=="Y" && z[2][2]=="Y")	
-				{
-						System.out.println("Computer wins!!");
-						System.exit(0);
-				}
-			for(int j=0;j<3;j++)
+			
+			for(j=0;j<3;j++)
 			{
+				
 				if(z[0][0]=="X" && z[1][1]=="X" && z[2][2]=="X" || z[0][2]=="X" && z[1][1]=="X" && z[2][0]=="X" || z[0][0]=="X" && z[1][0]=="X" && z[2][0]=="X"
 					    || z[0][1]=="X" && z[1][1]=="X" && z[2][1]=="X" || z[0][2]=="X" && z[1][2]=="X" && z[2][2]=="X" 
 					    || z[0][0]=="X" && z[0][1]=="X" && z[0][2]=="X" || z[1][0]=="X" && z[1][1]=="X" && z[1][2]=="X" || z[2][0]=="X" && z[2][1]=="X" && z[2][2]=="X")
@@ -39,32 +28,33 @@ public class TicTacToe
 						System.exit(0);
 					}
 					else
-						if(z[0][0]=="Y" && z[1][1]=="Y" && z[2][2]=="Y" || z[0][2]=="Y" && z[1][1]=="Y" && z[2][0]=="Y" || z[0][0]=="Y" && z[1][0]=="Y" && z[2][0]=="Y"
-					       || z[0][1]=="Y" && z[1][1]=="Y" && z[2][1]=="Y" || z[0][2]=="Y" && z[1][2]=="Y" && z[2][2]=="Y" 
-					       || z[0][0]=="Y" && z[0][1]=="Y" && z[0][2]=="Y" || z[1][0]=="Y" && z[1][1]=="Y" && z[1][2]=="Y" || z[2][0]=="Y" && z[2][1]=="Y" && z[2][2]=="Y")	
+						if(z[0][0]=="O" && z[1][1]=="O" && z[2][2]=="O" || z[0][2]=="O" && z[1][1]=="O" && z[2][0]=="O" || z[0][0]=="O" && z[1][0]=="O" && z[2][0]=="O"
+					       || z[0][1]=="O" && z[1][1]=="O" && z[2][1]=="O" || z[0][2]=="O" && z[1][2]=="O" && z[2][2]=="O" 
+					       || z[0][0]=="O" && z[0][1]=="O" && z[0][2]=="O" || z[1][0]=="O" && z[1][1]=="O" && z[1][2]=="O" || z[2][0]=="O" && z[2][1]=="O" && z[2][2]=="O")	
 					{
 							System.out.println("Computer wins!!");
 							System.exit(0);
 					}
 				if(k%2==0)
 				{
+					if(j!=3)
+					{
 					System.out.println("Your Turn");
 					
 					System.out.print("Enter the row index : ");
 					int r=ScannerUtility.intScanner();
 					System.out.print("Enter the coulumn index : ");
 					int c=ScannerUtility.intScanner();
-					while(r<0 || r>2 || c<0 || c>2)
+					boolean val=true;
+					while(z[r][c]!=null)
 					{
-						System.out.println("Wrong choice !!");
-						System.out.print("Enter the row index(0,2): ");
-						int x=ScannerUtility.intScanner();
-						r=x;
-						System.out.print("Enter the coulumn index(0,2): ");
-						int y=ScannerUtility.intScanner();
-						c=y;
-						if(z[r][c]!=null)
-							continue;
+						System.out.println("Index already taken");
+						System.out.print("Enter the row index : ");
+						 r=ScannerUtility.intScanner();
+						System.out.print("Enter the coulumn index : ");
+						 c=ScannerUtility.intScanner();
+						
+							
 					}
 					while(z[r][c]==null || z[r][c]!="X")
 					{
@@ -92,28 +82,36 @@ public class TicTacToe
 					}
 					System.out.println();
 					++k;
-				}
-				else
-				{
-					if(z[0][0]=="X" && z[1][1]=="X" && z[2][2]=="X" || z[0][2]=="X" && z[1][1]=="X" && z[2][0]=="X" || z[0][0]=="X" && z[1][0]=="X" && z[2][0]=="X"
+					if(j==2 && (z[0][0]=="X" && z[1][1]=="X" && z[2][2]=="X" || z[0][2]=="X" && z[1][1]=="X" && z[2][0]=="X" || z[0][0]=="X" && z[1][0]=="X" && z[2][0]=="X"
 						    || z[0][1]=="X" && z[1][1]=="X" && z[2][1]=="X" || z[0][2]=="X" && z[1][2]=="X" && z[2][2]=="X" 
-						    || z[0][0]=="X" && z[0][1]=="X" && z[0][2]=="X" || z[1][0]=="X" && z[1][1]=="X" && z[1][2]=="X" || z[2][0]=="X" && z[2][1]=="X" && z[2][2]=="X")
+						    || z[0][0]=="X" && z[0][1]=="X" && z[0][2]=="X" || z[1][0]=="X" && z[1][1]=="X" && z[1][2]=="X" || z[2][0]=="X" && z[2][1]=="X" && z[2][2]=="X"))
 						{
 							System.out.println("You win!!");
 							System.exit(0);
 						}
 						else
-							if(z[0][0]=="Y" && z[1][1]=="Y" && z[2][2]=="Y" || z[0][2]=="Y" && z[1][1]=="Y" && z[2][0]=="Y" || z[0][0]=="Y" && z[1][0]=="Y" && z[2][0]=="Y"
-						       || z[0][1]=="Y" && z[1][1]=="Y" && z[2][1]=="Y" || z[0][2]=="Y" && z[1][2]=="Y" && z[2][2]=="Y" 
-						       || z[0][0]=="Y" && z[0][1]=="Y" && z[0][2]=="Y" || z[1][0]=="Y" && z[1][1]=="Y" && z[1][2]=="Y" || z[2][0]=="Y" && z[2][1]=="Y" && z[2][2]=="Y")	
+							if(j==2 && (z[0][0]=="O" && z[1][1]=="O" && z[2][2]=="O" || z[0][2]=="O" && z[1][1]=="O" && z[2][0]=="O" || z[0][0]=="O" && z[1][0]=="O" && z[2][0]=="O"
+						       || z[0][1]=="O" && z[1][1]=="O" && z[2][1]=="O" || z[0][2]=="O" && z[1][2]=="O" && z[2][2]=="O" 
+						       || z[0][0]=="O" && z[0][1]=="O" && z[0][2]=="O" || z[1][0]=="O" && z[1][1]=="O" && z[1][2]=="O" || z[2][0]=="O" && z[2][1]=="O" && z[2][2]=="O"))	
 						{
 								System.out.println("Computer wins!!");
 								System.exit(0);
 						}
-							
-					System.out.println("Computer's Turn");
+				}
+				}
+				else
+				{
+										
+				    System.out.println("Computer's Turn");
 					int r=ran.nextInt(3);
 					int c=ran.nextInt(3);
+					while(z[r][c]!=null)
+					{
+						
+						r=ran.nextInt(3);
+						c=ran.nextInt(3);
+							
+					}
 					while(z[r][c]==null || z[r][c]!="O")
 					{
 						System.out.println(r+" "+c);
@@ -135,8 +133,14 @@ public class TicTacToe
 						
 					}
 					System.out.println();
-					k++;
+					++k;
 				}
+			}
+			if(i==2 && j==3)
+			{
+				System.out.println("Match Drawn!!!");
+				System.exit(0);
+				
 			}
 			}
 		
