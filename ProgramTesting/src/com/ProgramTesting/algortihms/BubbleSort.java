@@ -1,6 +1,8 @@
 package com.ProgramTesting.algortihms;
 import java.util.Scanner;
 
+import com.ProgramTesting.utility.ScannerUtility;
+
 
 public class BubbleSort {
 
@@ -29,13 +31,13 @@ public class BubbleSort {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Enter the no. of elements");
-Scanner sc=new Scanner(System.in);
-int n=sc.nextInt();
+
+int n=ScannerUtility.intScanner();
 int[] arr=new int[n];
 System.out.println("Enter the "+n+" elements");
 for(int i=0;i<n;i++)
 {
-arr[i]=sc.nextInt();	
+arr[i]=ScannerUtility.intScanner();	
 }
 int[] arr_sort=sort(arr);
 for(int i=0;i<n;i++)
