@@ -50,18 +50,8 @@ public class StopWatch {
 	       System.out.println(sum1);
 	       System.out.println("The time eleapsed is: "+time1);
 
-	       
-	        // sum of square roots of integers from 1 to n using Math.pow(x, 0.5).
-	        StopWatch timer2 = new StopWatch();
-	        double sum2 = 0.0;
-	        for (int i = 1; i <= n; i++) {
-	            sum2 += Math.pow(i, 0.5);
-	        }
+	  
 	      
-	        System.in.read();
-	        double time2 = timer2.elapsedTime();
-	        System.out.println(sum2);
-	        System.out.println("The time eleapsed is: "+time2);
 	    }
 	} 
 

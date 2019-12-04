@@ -17,7 +17,7 @@ public static float floatScanner()
 }
 public static String stringScanner()
 {
-	return SC.next();
+	return SC.nextLine();
 }
 public static boolean booleanScanner()
 {
@@ -204,13 +204,13 @@ public static double temperatureConversion(double temp,char ch)
 			return val;
 		}
 		else
-			if(ch=='F')
-			{
-				double val=(temp -32)*5/9;
-			return val;
-			}
-			else
-				return -1;
+		if(ch=='F')
+		{
+		 double val=(temp -32)*5/9;
+		 return val;
+		}
+		else
+		 return -1;
 }
 
 
