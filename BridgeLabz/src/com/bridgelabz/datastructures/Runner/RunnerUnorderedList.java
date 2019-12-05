@@ -1,61 +1,56 @@
-package com.bridgelabz.datastructures;
+package com.bridgelabz.datastructures.Runner;
 
-import java.io.BufferedReader;
+
+
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
+import com.bridgelabz.datastructures.Impl.UnorderedList;
 import com.bridgelabz.utility.Util;
 import com.bridgelabz.utility.UtilDs;
 
-public class RunnerUnorderedList {
+public class RunnerUnorderedList extends UnorderedList {
 
 	public static void main(String[] args) throws IOException {
 		
-		
+		UnorderedList<String> list=new UnorderedList<String>();
 		File f=new File("D://myfile.txt");
-		String[] str=new String[100];
-		str=UtilDs.readFile(f);
 		
-		for(String s:str)
-		{
-			if(s!=null)
-			{
-		    String[] str_new=s.split(" ");
+		String arr=UtilDs.readFile(f);
+		    String[] str_new=arr.split(" ");
 		      for(String m:str_new)
 		      {
-		       UtilDs.add(m);
+		       list.add(m);
 		      }
-		    }
-		}
-		UtilDs.show();
-	    UtilDs.writeFile();
+		 
+		list.show();
+	    UtilDs.writeFile(list);
 	    System.out.println();
 		System.out.print("Enter the item to be searched : ");
 		String val=Util.stringScanner();
 		System.out.println(val);
-		int x=UtilDs.index(val);
+		int x=list.index(val);
 		
 		if(x==-1)
 		{
 			System.out.println("Empty list");
-			UtilDs.add(val);
-			UtilDs.show();
-		    UtilDs.writeFile();
+			list.add(val);
+			list.show();
+		    UtilDs.writeFile(list);
 		}
 		else
 			if(x==-2)
 			{
 				System.out.println("Element not found");
-				UtilDs.add(val);
-				UtilDs.show();
-			    UtilDs.writeFile();
+				list.add(val);
+			    list.show();
+			    UtilDs.writeFile(list);
 			}
 				else
 				{
 				System.out.println("Element present at "+x+" index");
-				UtilDs.remove(val);
-				UtilDs.show();
+				list.remove(val);
+				list.show();
 				
 				}
 		
