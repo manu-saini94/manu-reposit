@@ -1,17 +1,14 @@
 package com.bridgelabz.datastructures.Impl;
 
-import com.bridgelabz.datastructures.Runner.Node;
+
 
 public class OrderedList<E> {
-	private  Node<E> head;
-	private Node<E> last;
-	private  Node<E> prev;
+	public  Node<E> head;
+	public  Node<E> last;
+	public  Node<E> prev;
 	
 		
-		public Node<E> returnHead()
-		{
-			return head;
-		}
+		
 		//add()-for adding a new item in the list.
 		public void add(E data)
 		{
@@ -223,15 +220,61 @@ public class OrderedList<E> {
 			{
 				Node<E> n=head;
 				int i=0;
-				while(i<pos)
+				while(i<=pos)
 				{
+					if(pos==0)
+						break;
+					else
+					{
 					prev=n;
 					n=n.next;
-					++i;
-				}
+					i++;
+					}
+			    }
+				if(pos!=0)
+				{
 				prev.next=node;
 				node.next=n;
+				}
+				else
+				if(pos==0)
+			    {
+				node.next=n;
+				head=node;
+			    }
 			}
+		}
+		
+		public int sortedIndex(E data)
+		{
+			Node<E> n=head;
+			Node<E> current=null;
+			int i=0;
+			int j=0;
+			boolean flag=false;
+			while(n.next!=null)
+			{
+				current=n.next;
+				if((int)n.data>(int)data)
+				{
+				flag=true;
+				j=0;
+				}
+				else
+				if((int)n.data<(int)data && (int)current.data>(int)data)
+				{
+			 	flag=true;
+				j=i;
+				}
+				else
+				{
+					n=n.next;
+					i++;
+				}
+				if(flag==true)
+					break;
+			}
+			return j;
 		}
 		
 		

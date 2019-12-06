@@ -39,7 +39,9 @@ public class RunnerOrderedList {
 		if(x==-1)
 		{
 			System.out.println("Empty list");
-			list.add(I);
+			int l=list.sortedIndex(I);
+			list.insert(l,I);
+			System.out.println("Inserted at "+l+" index");
 			list.show();
 		    UtilDs.writeFile(list);
 		}
@@ -47,7 +49,8 @@ public class RunnerOrderedList {
 			if(x==-2)
 			{
 				System.out.println("Element not found");
-				list.add(I);
+				int l=list.sortedIndex(I);
+				list.insert(l,I);
 			    list.show();
 			    UtilDs.writeFile(list);
 			}

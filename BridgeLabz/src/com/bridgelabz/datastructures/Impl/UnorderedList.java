@@ -1,11 +1,11 @@
 package com.bridgelabz.datastructures.Impl;
 
-import com.bridgelabz.datastructures.Runner.Node;
+
 
 public class UnorderedList<E> {
-	private  Node<E> head;
-	private  Node<E> last;
-	private  Node<E> prev;
+	public Node<E> head;
+	public  Node<E> last;
+	public  Node<E> prev;
 	
 		
 		public Node<E> returnHead()

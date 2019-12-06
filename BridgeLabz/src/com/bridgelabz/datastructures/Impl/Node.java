@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructures.Runner;
+package com.bridgelabz.datastructures.Impl;
 
 public class Node<E> {
 public E data;

@@ -9,7 +9,7 @@ import com.bridgelabz.datastructures.Impl.UnorderedList;
 import com.bridgelabz.utility.Util;
 import com.bridgelabz.utility.UtilDs;
 
-public class RunnerUnorderedList extends UnorderedList {
+public class RunnerUnorderedList  {
 
 	public static void main(String[] args) throws IOException {
 		
