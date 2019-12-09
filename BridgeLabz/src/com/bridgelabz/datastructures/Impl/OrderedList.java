@@ -10,7 +10,7 @@ public class OrderedList<E> {
 		
 		
 		//add()-for adding a new item in the list.
-		public void add(E data)
+		public E add(E data)
 		{
 			Node<E> node=new Node<E>();
 		    node.data=data;
@@ -18,6 +18,7 @@ public class OrderedList<E> {
 			{
 			node.next=null;
 			head=node;
+			return data;
 			}
 			else
 			{
@@ -28,6 +29,7 @@ public class OrderedList<E> {
 			}
 			n.next=node;
 		    last=node;
+		    return data;
 			}
 			
 		}
@@ -121,23 +123,51 @@ public class OrderedList<E> {
 		//remove()
 		public void remove(int data)
 		{
-			boolean flag=false;
+			
 			Node<E> n=head;
 			if(isEmpty())
 			{
 			System.out.println("List is empty!!!");
-			flag=true;
+			
 			}
 			else
 		    if(head.next==null && (int)head.data==data)
 			{
 		    	System.out.println(data+" is deleted");	  
 		    	head=null;
-		    	flag=true;
+		    	
 			}
 		    else
 		    {
-		    	
+		    	while(n.next!=null && (int)n.data!=data)
+		    	{
+		    		prev=n;
+		    		n=n.next;
+		    	}
+		    	if(n.next==null && (int)n.data==data)
+		    	{
+		    		prev.next=null;
+		    		last=prev;
+		    		System.out.println(data+" is deleted");
+		    		n=null;
+		    		
+		    	}
+		    	else 
+		        if(n.next==null && (int)n.data!=data)
+		        {	
+		   
+		        System.out.println("Element not found!"); 
+		        }
+		    	else
+		    	{
+		    		prev.next=n.next;
+		    		n=null;
+		    		System.out.println(data+" is deleted");	
+		    	}    	
+		    }
+		 
+			
+		    /*	
 			 for(int i=0;i<size();i++)
 			 {
 				 if(n.data.equals(data))
@@ -178,6 +208,9 @@ public class OrderedList<E> {
 			     break;
 			   }
 			 }
+			 */
+		    	
+		    	
 			}
 		
 		//index()

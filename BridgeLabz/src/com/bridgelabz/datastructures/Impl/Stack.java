@@ -58,7 +58,7 @@ public class Stack<E> {
 		}
 		
 	}
-	public E pop()
+	public E popChar()
 	{
 		
 	if(isEmpty())
@@ -102,5 +102,36 @@ public class Stack<E> {
 	public String peek()
 	{
 		return (String)top.data;
+	}
+	
+	public E pop()
+	{
+		
+	if(isEmpty())
+	{
+		return null;
+	}
+	else if(size()==1)
+	{
+		head=null;
+		 E data=top.data;
+		top=null;
+		return data;
+	}
+	else
+	{
+		Node n=head;
+		Node n1=top;
+		  while(n.next!=top)
+		    {
+			   n=n.next;
+		    }
+		  E data=top.data;
+	n.next=null;
+	top=n;
+	//System.out.println(n1.data+" is poped");
+	n1=null;
+	return data;
+	}
 	}
 }

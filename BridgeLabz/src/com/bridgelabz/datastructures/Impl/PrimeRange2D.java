@@ -37,7 +37,6 @@ public class PrimeRange2D {
 			}
 		 }
 	     
-		
 		int[] arr_new=new int[k];
 		for(int i=0;i<k;i++)
 			arr_new[i]=arr[i];

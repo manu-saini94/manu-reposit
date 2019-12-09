@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 
 import com.bridgelabz.datastructures.Impl.OrderedList;
 import com.bridgelabz.datastructures.Impl.UnorderedList;
@@ -64,6 +65,25 @@ public class UtilDs {
 			br.close();
 			
 		}
-
+		public static void writeFile(Map<Integer,OrderedList<Integer>> m) throws IOException
+		{
+			File f=new File("D://newhashingnums.txt");
+			FileWriter fr=new FileWriter(f);
+			BufferedWriter br=new BufferedWriter(fr);
+			//Node<Integer> head=list.returnHead();
+			for(int i=0;i<=10;i++)
+			{
+			
+			OrderedList<Integer> list=m.get(i);
+			Node<Integer> n=list.head;
+			while(n!=null)
+			{
+				br.write(n.data+" ");
+				n=n.next;
+			}
+		    br.newLine();
+		    }
+			br.close();
+		}
 		
 }

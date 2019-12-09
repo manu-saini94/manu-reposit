@@ -1,11 +1,15 @@
 package com.bridgelabz.utility;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Util {
 private static final  Scanner SC=new Scanner(System.in);
+private static final BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 
 public static int intScanner()
 {
@@ -18,6 +22,10 @@ public static float floatScanner()
 public static String stringScanner()
 {
 	return SC.nextLine();
+}
+public static String bufferScanner() throws IOException
+{
+	return br.readLine();
 }
 public static boolean booleanScanner()
 {
@@ -130,12 +138,20 @@ public static boolean isPowerOf2(int num)
 
 
 public static int dayOfWeek(int m,int d,int y)
-{
+{/*
 	int d1,y1,m1,x;
 	y1=y-(14-m)/12;
 	x=y1+(y1/4)-(y1/100)+(y1/400);
-	m1=m+12*((14-m)/12)-2;
-	d1=(d+x+(31*m1)/12)%7;
+	m1=m+12*(14-m)/12-2;
+	d1=d+x+(31*m1)/12%7;
+	return d1;
+	
+	*/
+	int d1,y1,m1,x;
+	y1 = y-(14-m)/12;
+	x = y1 + y1/4 - y1/100 + y1/400;
+	m1 = m + 12 * ((14 - m) / 12) - 2;
+	d1 = (d + x + 31*m1 / 12)% 7;
 	return d1;
 }
 

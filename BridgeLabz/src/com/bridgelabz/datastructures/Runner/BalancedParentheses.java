@@ -32,7 +32,7 @@ public class BalancedParentheses {
 		}
 		else if(ch[i]=='}' || ch[i]==')' || ch[i]==']')
 	     {
-			char c=s.pop();
+			char c=s.popChar();
 			if(c=='\u0000')
 				flag=true;
 			else
