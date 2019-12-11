@@ -7,7 +7,7 @@ public class Calender {
 	
 	public static void monthCalender(int m,int y,LeapYear ob)
 	{
-		if( m==2 && ob.isLeapYear(y) )
+		if( m==2 && ob.isLeapYear(y))
 		{
 			System.out.println(" S   M   T   W   T   F   S");
 			for(int i=1;i<=29;i++)
@@ -17,7 +17,7 @@ public class Calender {
 			{
 				for(int j=0;j<x;j++)
 				{
-					System.out.print("  ");
+					System.out.print("    ");
 				}
 				System.out.println(" "+i);
 			}
@@ -26,7 +26,7 @@ public class Calender {
 			{
 				for(int j=0;j<x;j++)
 				{
-					System.out.print("  ");
+					System.out.print("    ");
 				}
 				System.out.print(" "+i+"  ");	
 			}
@@ -58,7 +58,7 @@ public class Calender {
 				{
 					for(int j=0;j<x;j++)
 					{
-						System.out.print("  ");
+						System.out.print("    ");
 					}
 					System.out.println(" "+i);
 				}
@@ -67,7 +67,7 @@ public class Calender {
 				{
 					for(int j=0;j<x;j++)
 					{
-						System.out.print("  ");
+						System.out.print("    ");
 					}
 					System.out.print(" "+i+"  ");	
 				}
@@ -99,7 +99,7 @@ public class Calender {
 				{
 					for(int j=0;j<x;j++)
 					{
-						System.out.print("  ");
+						System.out.print("    ");
 					}
 					System.out.println(" "+i);
 				}
@@ -108,7 +108,7 @@ public class Calender {
 				{
 					for(int j=0;j<x;j++)
 					{
-						System.out.print("  ");
+						System.out.print("    ");
 					}
 					System.out.print(" "+i+"  ");	
 				}
