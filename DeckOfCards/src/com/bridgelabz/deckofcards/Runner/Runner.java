@@ -12,7 +12,8 @@ String[] deck=obj.addCards();
 for(String s:deck)
 	System.out.print(s+" ");
 System.out.println();
-obj.distribute(deck);
+String[][] str=obj.distribute(deck);
+obj.print(str);
 
 
 

@@ -41,7 +41,7 @@ public class DaoImpl implements Dao {
 	}
 	
 	@Override
-	public void distribute(String[] deck) {
+	public String[][] distribute(String[] deck) {
 		// TODO Auto-generated method stub
 		Random r=new Random();
 		String[][] arr=new String[4][36];
@@ -70,6 +70,14 @@ public class DaoImpl implements Dao {
 				}
 			 }
 		}
+		
+		return arr;
+	}
+
+
+	@Override
+	public void print(String[][] arr) {
+		// TODO Auto-generated method stub
 		for(int i=0;i<4;i++)
 		{
 			System.out.println();
@@ -79,13 +87,6 @@ public class DaoImpl implements Dao {
 				System.out.print(arr[i][j]+",");
 			}
 		}
-	}
-
-
-	@Override
-	public void print() {
-		// TODO Auto-generated method stub
-
 	}
 
 	
