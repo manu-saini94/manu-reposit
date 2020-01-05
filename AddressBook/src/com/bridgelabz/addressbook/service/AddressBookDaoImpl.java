@@ -1,9 +1,12 @@
-package com.bridgelabz.addressbook.DaoImpl;
+package com.bridgelabz.addressbook.service;
 
-import java.io.FileNotFoundException; 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Comparator;
+import java.util.LinkedList;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,11 +14,11 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.addressbook.Dao.MyAddressBook;
 import com.bridgelabz.addressbook.Utility.Util;
-import com.bridgelabz.addressbook.service.AddressBook;
+import com.bridgelabz.addressbook.model.AddressBook;
+import com.bridgelabz.addressbook.service.AddressBookDao;
 
-public class MyAddressBookImpl implements MyAddressBook {
+public class AddressBookDaoImpl implements AddressBookDao {
 
 	JSONArray array=new JSONArray();
 	String fileName;
@@ -69,7 +72,7 @@ public class MyAddressBookImpl implements MyAddressBook {
 		ob.setPhoneno(phno);
 		
 		JSONObject object=new JSONObject();
-        object.put("firstname",first_name);
+        object.put("firstname",ob.getFname());
         object.put("lastname",last_name);
         object.put("address",addr);
         object.put("city",city_name);
@@ -96,11 +99,13 @@ public class MyAddressBookImpl implements MyAddressBook {
 		JSONParser parser=new JSONParser();
 		array=new JSONArray(parser.parse(fr).toString());
 		
+		
 		for(int i=0;i<array.length();i++)
 		{
 			JSONObject ob=array.getJSONObject(i);
 		    if(fname.equals(ob.getString("firstname")))
 			array.remove(i);
+		    
 		}
 		}
 		catch(FileNotFoundException e)
@@ -216,13 +221,14 @@ public class MyAddressBookImpl implements MyAddressBook {
 			flag=true;
 		}
 		}
-		catch(Exception e)
+		catch(NullPointerException e)
 		{
 			System.out.println("Exception is thrown");
 			flag=false;
 		}
 		finally
 		{
+			
 			fr.close();
 		}
 		return flag;
@@ -247,5 +253,51 @@ public class MyAddressBookImpl implements MyAddressBook {
 		return b;
 	}
 
+	
+	public void sorting() throws IOException, ParseException, JSONException {
+		// TODO Auto-generated method stub
+    	
+    	FileReader fr=null;
+    	JSONArray array1=new JSONArray();
+		try
+		{
+		fr=new FileReader("AddressBook.json");
+		JSONParser parser=new JSONParser();
+		array=new JSONArray(parser.parse(fr).toString());
+		
+		LinkedList<String> l1=new LinkedList<String>();
+		for(int i=0;i<array.length();i++)
+		{
+			JSONObject ob=array.getJSONObject(i);
+		    l1.push(ob.getString("lastname"));
+		}
+		l1.sort(Comparator.comparing(e -> e));
+		System.out.println(l1);
+		for(String s:l1)
+		{
+			for(int i=0;i<array.length();i++)
+			{
+				JSONObject ob=array.getJSONObject(i);
+			    if(s.equals(ob.getString("lastname")) )
+			    {		
+			    	array1.put(ob);
+			    }
+			}
+		}
+		  PrintWriter pw=new PrintWriter("Sorted.json");
+	        pw.write(array1.toString());
+	        pw.flush();
+	        pw.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			fr.close();
+		}
+		
+	}
 	
 }

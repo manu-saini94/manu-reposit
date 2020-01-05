@@ -5,16 +5,17 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.addressbook.DaoImpl.MyAddressBookImpl;
 import com.bridgelabz.addressbook.Utility.Util;
+import com.bridgelabz.addressbook.service.AddressBookDao;
+import com.bridgelabz.addressbook.service.AddressBookDaoImpl;
 
-public class Runner {
+public class AddressBookController {
 
 	public static void main(String[] args) throws IOException, ParseException, JSONException {
 		// TODO Auto-generated method stub
         
 		String a=null;
-	    MyAddressBookImpl obj=new MyAddressBookImpl();
+	    AddressBookDao obj=new AddressBookDaoImpl();
 	   
         do
         {
@@ -22,7 +23,8 @@ public class Runner {
         System.out.println("********Menu**********");
         System.out.println("1. Add a new Address Book");
         System.out.println("2. Open an existing Address Book");
-        System.out.println("3. Exit");
+        System.out.println("3. Sorting");
+        System.out.println("4. Exit");
         System.out.print("Enter your choice : ");
         ch=Util.intScanner();
 		switch(ch)
@@ -41,6 +43,7 @@ public class Runner {
 		case 2:  System.out.print("Enter the First Name :");
 		         String fname=Util.stringScanner();
 		         boolean b=obj.match(fname);
+		         obj.sorting();
 		         if(b==false)
 		         {
 		        	 System.out.println("Record does not exist");
@@ -75,8 +78,13 @@ public class Runner {
 			       System.out.println("Record does not exist");
 			     }
 			     break;
-		case 3: System.exit(0);
+			     
+		case 3:obj.sorting();
+			    break;
+			    
+		case 4: System.exit(0);
 		        break;
+		        
 		default: System.out.println("Wrong Choice!!");
 		       System.out.println("Do you wish to continue(y/n)");
 		     a=Util.stringScanner();

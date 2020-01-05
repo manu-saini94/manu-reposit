@@ -1,4 +1,4 @@
-package com.bridgelabz.addressbook.service;
+package com.bridgelabz.addressbook.model;
 
 public class AddressBook {
 private String fname;
