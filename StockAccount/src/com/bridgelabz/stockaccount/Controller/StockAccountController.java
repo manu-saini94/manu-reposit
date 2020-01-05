@@ -1,4 +1,4 @@
-package com.bridgelabz.stockaccount.Runner;
+package com.bridgelabz.stockaccount.Controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,20 +6,20 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.stockaccount.DaoImpl.StockAccount;
 import com.bridgelabz.stockaccount.Utility.Util;
+import com.bridgelabz.stockaccount.service.StockAccountImpl;
 
 
 
-public class Runner {
+public class StockAccountController{
 
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		// TODO Auto-generated method stub
 
 		String a=null;
-	    StockAccount obj1=new StockAccount();
-	    StockAccount obj2=new StockAccount();
-	    StockAccount obj3=new StockAccount();
+	    StockAccountImpl obj1=new StockAccountImpl();
+	    StockAccountImpl obj2=new StockAccountImpl();
+	    StockAccountImpl obj3=new StockAccountImpl();
 		    do
 	        {
 	        int cho;

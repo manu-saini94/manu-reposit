@@ -1,4 +1,4 @@
-package com.bridgelabz.stockaccount.DaoImpl;
+package com.bridgelabz.stockaccount.service;
 
 public class Stack<E> {
 	

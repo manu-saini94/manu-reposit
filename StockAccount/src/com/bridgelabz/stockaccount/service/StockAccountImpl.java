@@ -1,4 +1,4 @@
-package com.bridgelabz.stockaccount.DaoImpl;
+package com.bridgelabz.stockaccount.service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,12 +12,11 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.stockaccount.Dao.StockDao;
 import com.bridgelabz.stockaccount.Utility.Util;
-import com.bridgelabz.stockaccount.service.CompanyShares;
-import com.bridgelabz.stockaccount.service.Customer;
+import com.bridgelabz.stockaccount.model.CompanyShares;
+import com.bridgelabz.stockaccount.model.Customer;
 
-public class StockAccount implements StockDao {
+public class StockAccountImpl implements StockAccount {
 
 	JSONArray array1=new JSONArray();
 	JSONArray array2=new JSONArray();
@@ -86,9 +85,7 @@ public class StockAccount implements StockDao {
 					       flag=true;
 			    	  }
 			    	  else
-			    	  {
 			    	  flag=false;  
-			    	  }
 			    	  if(flag==true)
 						{
 						for(int k=0;k<array1.length();k++)

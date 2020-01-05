@@ -1,6 +1,5 @@
-package com.bridgelabz.stockaccount.service;
+package com.bridgelabz.stockaccount.model;
 
-import com.bridgelabz.stockaccount.DaoImpl.Stack;
 
 public class Customer {
 private String custname;

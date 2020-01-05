@@ -1,4 +1,4 @@
-package com.bridgelabz.stockaccount.service;
+package com.bridgelabz.stockaccount.model;
 
 public class CompanyShares {
 private String symbol;
