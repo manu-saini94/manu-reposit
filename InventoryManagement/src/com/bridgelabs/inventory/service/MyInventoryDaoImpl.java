@@ -1,4 +1,4 @@
-package com.bridgelabz.inventory.DaoImpl;
+package com.bridgelabs.inventory.service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,12 +13,12 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabs.inventory.Dao.MyInventory;
+import com.bridgelabs.inventory.service.MyInventoryDao;
 import com.bridgelabz.inventory.Utility.Util;
 import com.bridgelabz.inventory.service.Inventory;
 
 
-public class MyInventoryImpl implements MyInventory {
+public class MyInventoryDaoImpl implements MyInventoryDao {
 
 	JSONArray array=new JSONArray();
 	private static Inventory obj;

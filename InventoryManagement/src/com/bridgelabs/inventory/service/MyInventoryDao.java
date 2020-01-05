@@ -1,4 +1,4 @@
-package com.bridgelabs.inventory.Dao;
+package com.bridgelabs.inventory.service;
 
 import java.io.File;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
-public interface MyInventory {
+public interface MyInventoryDao {
 
 	public void addItems(File f) throws IOException, Exception;
 	

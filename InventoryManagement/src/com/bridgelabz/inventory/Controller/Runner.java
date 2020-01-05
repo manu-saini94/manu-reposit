@@ -2,8 +2,8 @@ package com.bridgelabz.inventory.Controller;
 
 import java.io.File;
 
-
-import com.bridgelabz.inventory.DaoImpl.MyInventoryImpl;
+import com.bridgelabs.inventory.service.MyInventoryDao;
+import com.bridgelabs.inventory.service.MyInventoryDaoImpl;
 import com.bridgelabz.inventory.Utility.Util;
 
 public class Runner {
@@ -11,7 +11,7 @@ public class Runner {
 	    public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		String a=null;
-	    MyInventoryImpl obj=new MyInventoryImpl();
+	    MyInventoryDao obj=new MyInventoryDaoImpl();
 	   
         do
         {

@@ -12,11 +12,11 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.inventory.DaoImpl.MyInventoryImpl;
+import com.bridgelabs.inventory.service.MyInventoryDaoImpl;
 import com.bridgelabz.inventory.Utility.Util;
 import com.bridgelabz.inventory.service.Inventory;
 
-public class InventoryManager extends MyInventoryImpl {
+public class InventoryManagerController extends MyInventoryDaoImpl {
 
 	static JSONArray array=new JSONArray();
 	 Inventory obj=null;
