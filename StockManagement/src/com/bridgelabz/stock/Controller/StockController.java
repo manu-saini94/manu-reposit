@@ -6,16 +6,17 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.stock.DaoImpl.StockDaoImpl;
 import com.bridgelabz.stock.Utility.Util;
+import com.bridgelabz.stock.service.StockDao;
+import com.bridgelabz.stock.service.StockDaoImpl;
 
-public class Runner {
+public class StockController {
 
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		// TODO Auto-generated method stub
 	      
 		String a=null;
-	    StockDaoImpl obj=new StockDaoImpl();
+	    StockDao obj=new StockDaoImpl();
 		    do
 	        {
 	        int ch;

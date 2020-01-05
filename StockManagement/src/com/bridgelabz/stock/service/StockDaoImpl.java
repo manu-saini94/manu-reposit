@@ -1,4 +1,4 @@
-package com.bridgelabz.stock.DaoImpl;
+package com.bridgelabz.stock.service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,8 +14,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.bridgelabz.stock.Utility.Util;
-import com.bridgelabz.stock.service.Stock;
-import com.bridgelabz.stock.Dao.StockDao;
+import com.bridgelabz.stock.model.Stock;
+import com.bridgelabz.stock.service.StockDao;
 
 public class StockDaoImpl implements StockDao {
 

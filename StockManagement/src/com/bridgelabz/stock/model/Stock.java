@@ -1,4 +1,4 @@
-package com.bridgelabz.stock.service;
+package com.bridgelabz.stock.model;
 
 public class Stock
 {
