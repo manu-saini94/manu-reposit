@@ -20,7 +20,7 @@ import com.bridgelabz.clinique.service.Clinique;
 
 public class CliniqueImpl implements Clinique {
 	
-	
+
 	JSONArray array=new JSONArray();
 	
 	@Override
@@ -33,23 +33,28 @@ public class CliniqueImpl implements Clinique {
 	for(int i=0;i<n;i++)
 	{
 		System.out.print("Enter the Doctor Name: ");
-	    String docname=Util.stringScanner();
-		d.setDocname(docname);
+	    String docName=Util.stringScanner();
+		d.setDocName(docName);
 		System.out.print("Enter the Doctor Id: ");
-		String docid=Util.stringScanner();
-		d.setDocid(docid);
+		String docId=Util.stringScanner();
+		d.setDocId(docId);
 		System.out.print("Enter the Doctor Specialization: ");
-		String docspec=Util.stringScanner();
-		d.setDocspec(docspec);
+		String docSpec=Util.stringScanner();
+		d.setDocSpec(docSpec);
 		System.out.print("Enter the Doctor Availability(AM/PM): ");
-		String docavail=Util.stringScanner();
-		d.setDocavail(docavail);
+		String docAvail=Util.stringScanner();
+		d.setDocAvail(docAvail);
+		Queue<String> queue=new Queue<String>();
+		d.setDocQueue(queue);
+		d.setDocCount(0);
 		
 		JSONObject object=new JSONObject();
-        object.put("doc name",d.getDocname());
-        object.put("doc id",d.getDocid());
-        object.put("doc spec",d.getDocspec());
-        object.put("doc avail",d.getDocavail());
+        object.put("doc name",d.getDocName());
+        object.put("doc id",d.getDocId());
+        object.put("doc spec",d.getDocSpec());
+        object.put("doc avail",d.getDocAvail());
+        object.put("doc app",d.getDocQueue());
+        object.put("doc count",d.getDocCount());
         array.put(object);
 	}
      PrintWriter pw=new PrintWriter(f);
@@ -94,15 +99,61 @@ public class CliniqueImpl implements Clinique {
 	}
 
 	@Override
-	public void bookAppointment() {
-		// TODO Auto-generated method stub
+	public boolean bookAppointment(String s3,String s4,File f,File f2) throws IOException, JSONException, ParseException {
+		FileReader fr=null;
+		boolean flag=false;
+		int n=0;
+		Queue<String> queue=null;
+		JSONObject ob=null;
+		Object obj=null;
+		try
+		{
+		fr=new FileReader(f);
+		JSONParser parser=new JSONParser();
+		array=new JSONArray(parser.parse(fr).toString());
 		
+		for(int i=0;i<array.length();i++)
+		{
+			ob=array.getJSONObject(i);
+	        if((int)ob.get("doc count")<=5 && ob.get("doc name").equals(s4))
+	        {
+	        	queue=(Queue<String>) ob.get("doc app");
+	            queue.enqueue(s3);
+	            n=(int)ob.get("doc count");
+	            n++;
+	            flag=true;
+	        }
+			else
+			{
+				flag=false;
+			}
+		}
+		ob.put("doc app",queue);
+		ob.put("doc count", n);
+		}
+		catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			fr.close();
+		}
+		if(flag==true)
+		{
+		  PrintWriter pw=new PrintWriter(f2);
+	        pw.write(array.toString());
+	        pw.flush();
+	        pw.close();	
+		}
+		return flag;
 	}
 
 	@Override
-	public void searchDoctor(String data,File f) throws JSONException, IOException, ParseException {
-		// TODO Auto-generated method stub
+	public boolean searchDoctor(String data,File f) throws JSONException, IOException, ParseException {
+		
 		FileReader fr=null;
+		boolean flag=false;
 		try
 		{
 		fr=new FileReader(f);
@@ -116,8 +167,12 @@ public class CliniqueImpl implements Clinique {
 	        {
 	        	System.out.println("Name: "+ob.get("doc name"));
 	        	System.out.println("Id :"+ob.get("doc id"));
-	        	System.out.println("Spec. :"+ob.get("doc "));
+	        	System.out.println("Spec. :"+ob.get("doc spec"));
 	        	System.out.println("Avail :"+ob.get("doc avail"));
+	        	System.out.println("Appointment :"+ob.get("doc app"));
+	        	System.out.println("Count :"+ob.get("doc count"));
+	        	
+	        	flag=true;
 	        }
 		}
 		}
@@ -129,12 +184,14 @@ public class CliniqueImpl implements Clinique {
 		{
 			fr.close();
 		}
+		return flag;
 	}
 
 	@Override
-	public void searchPatient(String data,File f) throws JSONException, IOException, ParseException {
-		// TODO Auto-generated method stub
+	public boolean searchPatient(String data,File f) throws JSONException, IOException, ParseException {
+		
 		FileReader fr=null;
+		boolean flag=false;
 		try
 		{
 		fr=new FileReader(f);
@@ -150,6 +207,7 @@ public class CliniqueImpl implements Clinique {
 	        	System.out.println("Id :"+ob.get("pat id"));
 	        	System.out.println("Mob no. :"+ob.get("pat mob"));
 	        	System.out.println("Age :"+ob.get("pat age"));
+	        	flag=true;
 	        }
 		}
 		}
@@ -161,6 +219,7 @@ public class CliniqueImpl implements Clinique {
 		{
 			fr.close();
 		}
+		return flag;
 	}
 	
 	public void createFile(String file) throws IOException

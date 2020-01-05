@@ -1,1 +1,1 @@
-[{"doc spec":"Ortho","doc avail":"AM","doc name":"Atul","doc id":"123"},{"doc spec":"Gyno","doc avail":"PM","doc name":"Amit","doc id":"234"}]
+[{"pat name":"Manu","pat age":"23","pat mob":"33444","pat id":"123"},{"pat name":"Hunny","pat age":"34","pat mob":"34433","pat id":"234"},{"doc spec":"Ortho","doc app":"com.bridgelabz.clinique.service.Queue@7ea987ac","doc avail":"PM","doc name":"Atul","doc id":"234","doc count":0},{"doc spec":"Gyno","doc app":"com.bridgelabz.clinique.service.Queue@12a3a380","doc avail":"AM","doc name":"Ajay","doc id":"455","doc count":0}]

@@ -1,34 +1,51 @@
 package com.bridgelabz.clinique.model;
 
+import com.bridgelabz.clinique.service.Queue;
+
 public class Doctor {
-private String docname;
-private String docid;
-private String docspec;
-private String docavail;
-public String getDocname() {
-	return docname;
+private String docName;
+private String docId;
+private String docSpec;
+private String docAvail;
+private Queue<String> docQueue;
+private int docCount;
+public String getDocName() {
+	return docName;
 }
-public void setDocname(String docname) {
-	this.docname = docname;
+public void setDocName(String docName) {
+	this.docName = docName;
 }
-public String getDocid() {
-	return docid;
+public String getDocId() {
+	return docId;
 }
-public void setDocid(String docid) {
-	this.docid = docid;
+public void setDocId(String docId) {
+	this.docId = docId;
 }
-public String getDocspec() {
-	return docspec;
+public String getDocSpec() {
+	return docSpec;
 }
-public void setDocspec(String docspec) {
-	this.docspec = docspec;
+public void setDocSpec(String docSpec) {
+	this.docSpec = docSpec;
 }
-public String getDocavail() {
-	return docavail;
+public String getDocAvail() {
+	return docAvail;
 }
-public void setDocavail(String docavail) {
-	this.docavail = docavail;
+public void setDocAvail(String docAvail) {
+	this.docAvail = docAvail;
 }
+public Queue<String> getDocQueue() {
+	return docQueue;
+}
+public void setDocQueue(Queue<String> docQueue) {
+	this.docQueue = docQueue;
+}
+public int getDocCount() {
+	return docCount;
+}
+public void setDocCount(int docCount) {
+	this.docCount = docCount;
+}
+
 
 
 
