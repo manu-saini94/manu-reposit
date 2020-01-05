@@ -6,8 +6,9 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.clinique.DaoImpl.CliniqueImpl;
 import com.bridgelabz.clinique.Utility.Util;
+import com.bridgelabz.clinique.service.Clinique;
+import com.bridgelabz.clinique.service.CliniqueImpl;
 
 
 public class Runner {
@@ -15,7 +16,7 @@ public class Runner {
 	public static void main(String[] args) throws IOException, JSONException, ParseException {
 		// TODO Auto-generated method stub
 		String a=null;
-	    CliniqueImpl obj=new CliniqueImpl();
+	    Clinique obj=new CliniqueImpl();
 	    File f1=new File("doctors.json");
 	    File f2=new File("patients.json");
         do

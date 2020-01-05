@@ -1,4 +1,4 @@
-package com.bridgelabz.clinique.Dao;
+package com.bridgelabz.clinique.service;
 
 import java.io.File;
 import java.io.IOException;

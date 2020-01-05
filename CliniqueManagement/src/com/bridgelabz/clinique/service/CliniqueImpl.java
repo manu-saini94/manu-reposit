@@ -1,4 +1,4 @@
-package com.bridgelabz.clinique.DaoImpl;
+package com.bridgelabz.clinique.service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,10 +13,10 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.clinique.Dao.Clinique;
 import com.bridgelabz.clinique.Utility.Util;
-import com.bridgelabz.clinique.service.Doctor;
-import com.bridgelabz.clinique.service.Patient;
+import com.bridgelabz.clinique.model.Doctor;
+import com.bridgelabz.clinique.model.Patient;
+import com.bridgelabz.clinique.service.Clinique;
 
 public class CliniqueImpl implements Clinique {
 	
@@ -33,23 +33,23 @@ public class CliniqueImpl implements Clinique {
 	for(int i=0;i<n;i++)
 	{
 		System.out.print("Enter the Doctor Name: ");
-	    String doc_name=Util.stringScanner();
-		d.setDoc_name(doc_name);
+	    String docname=Util.stringScanner();
+		d.setDocname(docname);
 		System.out.print("Enter the Doctor Id: ");
-		String doc_id=Util.stringScanner();
-		d.setDoc_id(doc_id);
+		String docid=Util.stringScanner();
+		d.setDocid(docid);
 		System.out.print("Enter the Doctor Specialization: ");
-		String doc_spec=Util.stringScanner();
-		d.setDoc_spec(doc_spec);
+		String docspec=Util.stringScanner();
+		d.setDocspec(docspec);
 		System.out.print("Enter the Doctor Availability(AM/PM): ");
-		String doc_avail=Util.stringScanner();
-		d.setDoc_avail(doc_avail);
+		String docavail=Util.stringScanner();
+		d.setDocavail(docavail);
 		
 		JSONObject object=new JSONObject();
-        object.put("doc name",d.getDoc_name());
-        object.put("doc id",d.getDoc_id());
-        object.put("doc spec",d.getDoc_spec());
-        object.put("doc avail",d.getDoc_avail());
+        object.put("doc name",d.getDocname());
+        object.put("doc id",d.getDocid());
+        object.put("doc spec",d.getDocspec());
+        object.put("doc avail",d.getDocavail());
         array.put(object);
 	}
      PrintWriter pw=new PrintWriter(f);
@@ -68,23 +68,23 @@ public class CliniqueImpl implements Clinique {
 		for(int i=0;i<n;i++)
 		{
 			System.out.print("Enter the Patient Name: ");
-		    String pat_name=Util.stringScanner();
-			p.setPat_name(pat_name);
+		    String patname=Util.stringScanner();
+			p.setPatname(patname);
 			System.out.print("Enter the Patient Id: ");
-			String pat_id=Util.stringScanner();
-			p.setPat_id(pat_id);
+			String patid=Util.stringScanner();
+			p.setPatid(patid);
 			System.out.print("Enter the Patient Mobile No: ");
-			String pat_mob=Util.stringScanner();
-			p.setPat_mob(pat_mob);
+			String patmob=Util.stringScanner();
+			p.setPatmob(patmob);
 			System.out.print("Enter the Patient age: ");
-			String pat_age=Util.stringScanner();
-			p.setPat_age(pat_age);
+			String patage=Util.stringScanner();
+			p.setPatage(patage);
 			
 			JSONObject object=new JSONObject();
-	        object.put("pat name",p.getPat_name());
-	        object.put("pat id",p.getPat_id());
-	        object.put("pat mob",p.getPat_mob());
-	        object.put("pat age",p.getPat_age());
+	        object.put("pat name",p.getPatname());
+	        object.put("pat id",p.getPatid());
+	        object.put("pat mob",p.getPatmob());
+	        object.put("pat age",p.getPatage());
 	        array.put(object);
 		}
 	     PrintWriter pw=new PrintWriter(f);
