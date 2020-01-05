@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 
 import com.bridgelabs.inventory.service.MyInventoryDaoImpl;
 import com.bridgelabz.inventory.Utility.Util;
-import com.bridgelabz.inventory.service.Inventory;
+import com.bridgelabz.inventory.model.Inventory;
 
 public class InventoryManagerController extends MyInventoryDaoImpl {
 

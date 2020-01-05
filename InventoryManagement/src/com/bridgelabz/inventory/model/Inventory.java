@@ -1,4 +1,4 @@
-package com.bridgelabz.inventory.service;
+package com.bridgelabz.inventory.model;
 
 public class Inventory {
 private String name;
